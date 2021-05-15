@@ -1,0 +1,15 @@
+**/.*
+src/
+tsBuildInfoFile
+*.env
+.idea/
+lab/
+src/tests/
+package-lock.json
+Procfile
+Aptfile
+jest.config.js
+node_modules
+.prettierignore
+.prettierrc
+npm_install_test/
