@@ -13,3 +13,5 @@ node_modules
 .prettierignore
 .prettierrc
 npm_install_test/
+src/tests/
+dist/tests/
