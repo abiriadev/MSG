@@ -13,3 +13,12 @@ export {
     MiddlewareManager,
     MiddlewareChainRunner,
 }
+
+export default {
+    Bot,
+    Command,
+    Context,
+    ContextHeader,
+    MiddlewareManager,
+    MiddlewareChainRunner,
+}
