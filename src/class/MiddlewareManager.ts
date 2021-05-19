@@ -3,8 +3,8 @@ import Command from './Command'
 class MiddlewareManager {
     constructor(private middlewareChain: Array<Command> = []) {}
 
-    addCommand(mid: Command): this {
-        this.middlewareChain.push(mid)
+    addCommand(...mids: Array<Command>): this {
+        this.middlewareChain = this.middlewareChain.concat(mids)
         return this
     }
 

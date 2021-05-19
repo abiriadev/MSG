@@ -7,6 +7,7 @@ import MiddlewareChainRunner from './MiddlewareChainRunner'
 import isBot from '../commands/isBot'
 import prefixCheck from '../commands/prefixCheck'
 import parseArgs from '../commands/parseArgs'
+import Command from './Command'
 
 type Config = Readonly<{
     [key: string]: string | number
@@ -28,6 +29,11 @@ class Bot extends discord.Client {
         super(options)
 
         this.config = config || {}
+    }
+
+    addCommand (...cmds: Array<Command>): this {
+        this.middlewareManager.addCommand(...cmds)
+        return this
     }
 
     login(token: discord.Snowflake): Promise<string> {
