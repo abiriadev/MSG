@@ -7,7 +7,7 @@ import MiddlewareChainRunner from './MiddlewareChainRunner'
 import isBot from '../commands/isBot'
 import prefixCheck from '../commands/prefixCheck'
 import parseArgs from '../commands/parseArgs'
-import Command from './Command'
+import Command, { condStringOrTrue, indent } from './Command'
 
 type Config = Readonly<{
     [key: string]: string | number
@@ -31,8 +31,13 @@ class Bot extends discord.Client {
         this.config = config || {}
     }
 
-    addCommand (...cmds: Array<Command>): this {
+    addCommand(...cmds: Array<Command>): this {
         this.middlewareManager.addCommand(...cmds)
+        return this
+    }
+
+    indent(condString: condStringOrTrue, subCommands: Array<Command>): this {
+        this.middlewareManager.addCommand(indent(condString, subCommands))
         return this
     }
 

@@ -1,11 +1,38 @@
 import Context from './Context'
+import MiddlewareChainRunner from './MiddlewareChainRunner'
+import { promiseOr } from '../types'
 
-type nameAndDescription = {
+export type nameAndDescription = {
     name: string
     description: string
 }
 
-type promiseOr<T> = T | Promise<T>
+export type cond = (ctx: Context) => promiseOr<boolean>
+export type executor = (ctx: Context) => promiseOr<Context>
+
+export type condStringOrTrue = string | true
+
+export const subCall = (
+    condString: condStringOrTrue,
+    executorCallBack: executor,
+    tag: Partial<nameAndDescription> = {},
+): Command =>
+    new Command(
+        (ctx: Context) =>
+            ctx.header.currentCommand === condString || condString === true,
+        executorCallBack,
+        tag,
+    )
+
+export const indent = (
+    condString: condStringOrTrue,
+    subCommands: Array<Command>,
+): Command =>
+    new Command(
+        (ctx: Context) =>
+            ctx.header.currentCommand === condString || condString === true,
+        (ctx: Context) => new MiddlewareChainRunner(subCommands).run(ctx),
+    )
 
 class Command implements Partial<nameAndDescription> {
     static alwaysTrue = (_: Context): boolean => true
@@ -20,8 +47,8 @@ class Command implements Partial<nameAndDescription> {
     description?: string
 
     constructor(
-        readonly cond: (ctx: Context) => promiseOr<boolean>,
-        readonly executor: (ctx: Context) => promiseOr<Context>,
+        readonly cond: cond,
+        readonly executor: executor,
         tag: Partial<nameAndDescription> = {},
     ) {
         Object.assign(this, tag)
