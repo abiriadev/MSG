@@ -50,16 +50,20 @@ class Context {
         [key: string]: any
     } = {}
 
+    bot: Bot
+
     finish(): this {
         this.header.setFinish()
 
-        if (this.ex.bot instanceof Bot) {
-            this.ex.bot.emit('finish', this)
+        if (this.bot instanceof Bot) {
+            this.bot.emit('finish', this)
         }
         return this
     }
 
-    constructor(public msg: discord.Message) {}
+    constructor(public msg: discord.Message) {
+        this.bot = <Bot>msg.client
+    }
 }
 
 Context.copy = (originalCtx: Context) =>

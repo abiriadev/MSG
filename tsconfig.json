@@ -2,7 +2,9 @@
     "compilerOptions": {
         "target": "ESNext",
         "module": "commonjs",
-        "lib": [],
+        "lib": [
+          "es2015.symbol"
+        ],
         "declaration": true,
         "declarationMap": true,
         "sourceMap": true,

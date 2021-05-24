@@ -8,6 +8,7 @@ import isBot from '../commands/isBot'
 import prefixCheck from '../commands/prefixCheck'
 import parseArgs from '../commands/parseArgs'
 import Command, { condStringOrTrue, indent } from './Command'
+import { deprecate } from 'util'
 
 type Config = Readonly<{
     [key: string]: string | number
@@ -25,10 +26,10 @@ class Bot extends discord.Client {
 
     owner: discord.User | discord.Team | null = null
 
-    constructor(options?: discord.ClientOptions, config?: Config) {
+    constructor(options?: discord.ClientOptions, config: Config = {}) {
         super(options)
 
-        this.config = config || {}
+        this.config = config
     }
 
     addCommand(...cmds: Array<Command>): this {
@@ -65,7 +66,7 @@ class Bot extends discord.Client {
                 this.emit('final', finalContext)
             })
             .on('final', async (context: Context) => {
-                console.log(context.header)
+                console.log('finished!')
             })
 
         return super.login(token)

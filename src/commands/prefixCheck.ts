@@ -4,9 +4,9 @@ import Command from '../class/Command'
 export default new Command(
     Command.alwaysTrue,
     (context: Context) => {
-        if (context.msg.content.startsWith(context.ex.bot.config.prefix)) {
+        if (context.msg.content.startsWith(<string>context.bot.config.prefix)) {
             context.ex.content = context.msg.content.slice(
-                context.ex.bot.config.prefix.length,
+                (context.bot.config.prefix as string).length,
             )
             return context
         }
