@@ -23,17 +23,15 @@ bot.indent('bookmark', [
     MSG.subCall('add', ctx => {
         const [bookmarkName, bookmarkData] = ctx.ex?.currentArgs || []
 
-        if (!bookmarkName) ctx.msg.reply('please input bookmark name!')
+        if (!bookmarkName) ctx.reply('please input bookmark name!')
         else if (bookmarkName in bookmarkCache)
-            ctx.msg.reply(
-                `bookmark with name \`${bookmarkName}\` is already exist`,
-            )
+            ctx.reply(`bookmark with name \`${bookmarkName}\` is already exist`)
         else if (!bookmarkData)
-            ctx.msg.reply('please input bookmark data that will saved!')
+            ctx.reply('please input bookmark data that will saved!')
         else {
             bookmarkCache[bookmarkName] = bookmarkData
 
-            ctx.msg.reply(
+            ctx.reply(
                 `saved \`${bookmarkData}\` with name \`${bookmarkName}\` !`,
             )
         }
@@ -43,12 +41,12 @@ bot.indent('bookmark', [
         const bookmarkName = ctx.ex?.currentArgs?.[0]
 
         if (!bookmarkName)
-            ctx.msg.reply('please input the bookmark you want to delete')
+            ctx.reply('please input the bookmark you want to delete')
         else if (!(bookmarkName in bookmarkCache))
-            ctx.msg.reply(`can't find the bookmark named \`${bookmarkName}\`!`)
+            ctx.reply(`can't find the bookmark named \`${bookmarkName}\`!`)
         else {
             delete bookmarkCache[bookmarkName]
-            ctx.msg.reply(`\`${bookmarkName}\` now deleted!`)
+            ctx.reply(`\`${bookmarkName}\` now deleted!`)
         }
 
         return ctx.finish()
@@ -57,21 +55,15 @@ bot.indent('bookmark', [
         const [bookmarkName, bookmarkData] = ctx.ex?.currentArgs || []
 
         if (!bookmarkName)
-            ctx.msg.reply(
-                'please input the bookmark name that will be modified!',
-            )
+            ctx.reply('please input the bookmark name that will be modified!')
         else if (!(bookmarkName in bookmarkCache))
-            ctx.msg.reply(
-                `there is no bookmark with the name \`${bookmarkName}\`!`,
-            )
+            ctx.reply(`there is no bookmark with the name \`${bookmarkName}\`!`)
         else if (!bookmarkData)
-            ctx.msg.reply(
-                'please input the bookmark data that will be modified!',
-            )
+            ctx.reply('please input the bookmark data that will be modified!')
         else {
             bookmarkCache[bookmarkName] = bookmarkData
 
-            ctx.msg.reply(
+            ctx.reply(
                 `bookmark data changed from \`${bookmarkName}\` into \`${bookmarkData}\`!`,
             )
         }
@@ -80,15 +72,13 @@ bot.indent('bookmark', [
     }),
     MSG.subCall('list', ctx => {
         if (Object.keys(bookmarkCache).length === 0) {
-            ctx.msg.reply('no bookmarks have been saved yet!')
-            ctx.msg.channel.send(
-                'save new bookmark using `!bookmark add <name> <value>`!',
-            )
+            ctx.reply('no bookmarks have been saved yet!')
+            ctx.send('save new bookmark using `!bookmark add <name> <value>`!')
 
             return ctx.finish()
         }
 
-        ctx.msg.channel.send(
+        ctx.send(
             (() =>
                 `\`\`\`toml\n${Object.keys(bookmarkCache)
                     .reduce(
@@ -125,7 +115,7 @@ bot.indent('bookmark', [
             },
         ]
 
-        ctx.msg.channel.send(
+        ctx.send(
             commandUsage
                 .map(
                     ({ usage, doWhat }) =>

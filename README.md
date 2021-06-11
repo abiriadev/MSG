@@ -38,7 +38,7 @@ bot.on('readyState', bot => {
 
 bot.indent('now', [
     MSG.subCall('day', ctx => {
-        ctx.msg.reply(
+        ctx.reply(
             `current day is \`${new Intl.DateTimeFormat('en-US', {
                 weekday: 'long',
             }).format(new Date().getDay())}\``,
@@ -46,11 +46,11 @@ bot.indent('now', [
         return ctx.finish()
     }),
     MSG.subCall('date', ctx => {
-        ctx.msg.reply(`today is the \`${new Date().getDate()}th\``)
+        ctx.reply(`today is the \`${new Date().getDate()}th\``)
         return ctx.finish()
     }),
     MSG.subCall(true, ctx => {
-        ctx.msg.reply(`now time is \`${new Date()}\``)
+        ctx.reply(`now time is \`${new Date()}\``)
         return ctx.finish()
     }),
 ])
@@ -71,7 +71,7 @@ bot.addCommand(
             description: just show all data
             usage: \`${prefix}now\``
 
-        ctx.msg.reply(`command list:\n\`\`\`yml\n${commandDoc}\n\`\`\``)
+        ctx.reply(`command list:\n\`\`\`yml\n${commandDoc}\n\`\`\``)
         return ctx.finish()
     }),
 )

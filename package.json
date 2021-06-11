@@ -1,6 +1,6 @@
 {
     "name": "msg.ts",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "description": "MSG is the framework for make discord bot easily",
     "main": "dist/index.js",
     "scripts": {
