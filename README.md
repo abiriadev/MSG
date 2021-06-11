@@ -6,8 +6,8 @@
   <br />
   <p>
 
-![Discord](https://img.shields.io/discord/687271752224735233?color=%235865f2&label=discord)
-[![npm](https://img.shields.io/npm/v/msg.ts?color=%23E63A11)][2]
+![Discord](https://img.shields.io/discord/687271752224735233?color=%235865f2&label=discord&logo=discord)
+[![npm](https://img.shields.io/npm/v/msg.ts?color=%23E63A11&logo=npm)][2]
 [![Build Status](https://travis-ci.com/abiriadev/MSG.svg?branch=master)](https://travis-ci.com/abiriadev/MSG)
 [![npm](https://img.shields.io/npm/dt/msg.ts?color=%23db5d51)][2]
 [![Lines of code](https://img.shields.io/tokei/lines/github.com/abiriadev/MSG)](https://github.com/abiriadev/MSG/pulse)
