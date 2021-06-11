@@ -1,3 +1,22 @@
+0.5.2 / 2021-6-11
+==================
+
+* fix: fix missed file name
+* changed HISTORY.md into CHANGELOG.md
+
+0.5.1 / 2021-6-11
+==================
+
+* fix: add missing logos in badges
+
+0.5.0 / 2021-6-11
+==================
+
+* feat: add yarn to project
+* update installation section to use yarn
+* add yarn.lock file
+* add .yarnrc file
+
 0.5.0 / 2021-6-11
 ==================
 

@@ -1,0 +1,49 @@
+import discord from 'discord.js'
+import Context from '../class/Context'
+
+export default (
+    ctx: Context,
+    time: number,
+    block = true,
+): Promise<discord.Message> =>
+    new Promise((resolve, reject) => {
+        try {
+            let recieved: boolean = false
+
+            const cond = (msg: discord.Message) =>
+                msg.channel.id === ctx.msg.channel.id &&
+                msg.author.id === ctx.msg.author.id
+
+            const symbol: unique symbol = Symbol('cond')
+
+            if (block) {
+                ctx.bot.awaiters[symbol] = cond
+            }
+
+            const listener = (msg: discord.Message) => {
+                if (cond(msg)) {
+                    recieved = true
+
+                    ctx.bot.off('message', listener)
+                    if (block) {
+                        delete ctx.bot.awaiters[symbol]
+                    }
+                    resolve(msg)
+                }
+            }
+
+            setTimeout(() => {
+                if (!recieved) {
+                    if (block) {
+                        delete ctx.bot.awaiters[symbol]
+                    }
+                    ctx.bot.off('message', listener)
+                    reject('timeout')
+                }
+            }, time)
+
+            ctx.bot.on('message', listener)
+        } catch (err) {
+            reject(err)
+        }
+    })
