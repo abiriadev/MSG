@@ -1,3 +1,9 @@
+0.5.2 / 2021-6-11
+==================
+
+* fix: fix missed file name
+* changed HISTORY.md into CHANGELOG.md
+
 0.5.1 / 2021-6-11
 ==================
 
