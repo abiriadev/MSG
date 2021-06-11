@@ -1,3 +1,10 @@
+0.5.0 / 2021-6-11
+==================
+
+* docs: renew README.md
+* add CONTRIBUTING.md
+* add logo
+
 0.4.0 / 2021-6-11
 ==================
 

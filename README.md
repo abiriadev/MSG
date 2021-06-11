@@ -1,25 +1,55 @@
-<center>
+<div align="center">
+  <br />
+  <p>
+    <a href="https://github.com/abiriadev/MSG"><img src="https://github.com/abiriadev/MSG/blob/master/assets/msg_logo/MSG.png" width="546" alt="MSG" /></a>
+  </p>
+  <br />
+  <p>
 
-<br>
-<br>
+![Discord](https://img.shields.io/discord/687271752224735233?color=%235865f2&label=discord)
+[![npm](https://img.shields.io/npm/v/msg.ts?color=%23E63A11)][2]
+[![Build Status](https://travis-ci.com/abiriadev/MSG.svg?branch=master)](https://travis-ci.com/abiriadev/MSG)
+[![npm](https://img.shields.io/npm/dt/msg.ts?color=%23db5d51)][2]
+[![Lines of code](https://img.shields.io/tokei/lines/github.com/abiriadev/MSG)](https://github.com/abiriadev/MSG/pulse)
+[![NPM](https://img.shields.io/npm/l/msg.ts?color=%238b51db)](https://opensource.org/licenses/MIT)
 
-# MSG
-
-<br>
-
-</center>
+  </p>
 
 ---
 
-MSG is a framework for make discord bot easier
+  <p>
+    MSG is a powerful, adaptable and complementary framework for building discord bot applications
+  </p>
+</div>
 
-## installation
+## Table of contents
+
+-   [About](#about)
+-   [Installation](#installation)
+-   [Usage](#Usage)
+-   [Other packages](#Other packages)
+-   [Contributing](#contributing)
+-   [Links](#links)
+
+## About
+
+MSG is a discord bot framework that made for complement [discord.js](https://github.com/discordjs/discord.js) library.
+
+it runs on discord.js base, but it can do a lot of things to easy, than discord.js does.
+
+so, MSG can provide legacy workload that base on discord.js library.
+
+also, MSG can help you more with repetitive and meaningless tasks such as separation and controlling commands.
+
+## Installation
+
+**Node.js 16.0.0 or newer is required.**
 
 ```sh
 npm i msg.ts
 ```
 
-## usage
+## Usage
 
 ```js
 const MSG = require('msg.ts')
@@ -75,5 +105,27 @@ bot.addCommand(
         return ctx.finish()
     }),
 )
+
 bot.login(process.env.DISCORD_TOKEN)
 ```
+
+## Other packages
+
+[generator-msg](https://github.com/abiriadev/generator-msg) scaffolding for MSG framework (`npm i -g yo generator-msg ; yo msg`)
+
+## Contributing
+
+are you want to contribute?
+
+thanks so much!
+
+please read our [contributing guide](./CONTRIBUTING.md) before start contribute
+
+## links
+
+- [repository][1]
+- [npm page][2]
+- [generator-msg](https://github.com/abiriadev/generator-msg)
+
+[1]: https://github.com/abiriadev/MSG
+[2]: https://www.npmjs.com/package/msg.ts
