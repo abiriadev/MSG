@@ -1,6 +1,11 @@
 0.5.2 / 2021-6-11
 ==================
 
+* feat: add PULL_REQUEST_TEMPLATE.md
+
+0.5.2 / 2021-6-11
+==================
+
 * fix: fix missed file name
 * changed HISTORY.md into CHANGELOG.md
 
