@@ -49,6 +49,12 @@ also, MSG can help you more with repetitive and meaningless tasks such as separa
 npm i msg.ts
 ```
 
+alternatively, you can use yarn.
+
+```sh
+yarn add msg.ts
+```
+
 ## Usage
 
 ```js
@@ -125,6 +131,7 @@ please read our [contributing guide](./CONTRIBUTING.md) before start contribute
 
 - [repository][1]
 - [npm page][2]
+- [yarn page](https://yarnpkg.com/package/msg.ts)
 - [generator-msg](https://github.com/abiriadev/generator-msg)
 
 [1]: https://github.com/abiriadev/MSG

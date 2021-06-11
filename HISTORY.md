@@ -1,6 +1,14 @@
 0.5.0 / 2021-6-11
 ==================
 
+* feat: add yarn to project
+* update installation section to use yarn
+* add yarn.lock file
+* add .yarnrc file
+
+0.5.0 / 2021-6-11
+==================
+
 * docs: renew README.md
 * add CONTRIBUTING.md
 * add logo
