@@ -27,7 +27,7 @@
 -   [About](#about)
 -   [Installation](#installation)
 -   [Usage](#Usage)
--   [Other packages](#Other packages)
+-   [Other packages](#Other-packages)
 -   [Contributing](#contributing)
 -   [Links](#links)
 
