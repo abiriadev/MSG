@@ -1,0 +1,23 @@
+type keyResolvable = number | string
+
+export default class Cache<T> extends Map {
+    // private $: {
+    //     [key in keyResolvable]: T
+    // } = {}
+
+    set(name: keyResolvable, value: T): this {
+        if (name in this.$) {
+            throw new Error(`${name} is already exists`)
+        }
+        this.$[name] = value
+        return this
+    }
+
+    remove(name: keyResolvable): this {
+        if (!(name in this.$)) {
+            throw new Error(`${name} is not exists`)
+        }
+        delete this.$[name]
+        return this
+    }
+}

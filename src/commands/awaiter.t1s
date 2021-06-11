@@ -1,0 +1,8 @@
+import Context from '../class/Context'
+import Command from '../class/Command'
+import discord from 'discord.js'
+
+export default new Command(
+    (ctx: Context) => Object.values(ctx.ex.bot.awaiters).some((awaiter: (msg: discord.Message) => boolean) => awaiter(ctx.ex.msg)),
+    (_: Context) => _.finish(),
+),

@@ -1,6 +1,6 @@
 {
     "name": "msg.ts",
-    "version": "0.4.0",
+    "version": "0.5.0",
     "description": "MSG is the framework for make discord bot easily",
     "main": "dist/index.js",
     "scripts": {
@@ -38,14 +38,12 @@
     "directories": {
         "example": "examples"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/abiriadev/MSG.git"
-    },
+    "repository": "git+https://github.com/abiriadev/MSG.git",
     "bugs": {
         "url": "https://github.com/abiriadev/MSG/issues",
         "email": "abiria.dev@gmail.com"
     },
     "homepage": "https://github.com/abiriadev/MSG#readme",
-    "node": ">=12.0.0"
+    "node": ">=12.0.0",
+    "private": false
 }
