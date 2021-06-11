@@ -1,4 +1,8 @@
-import discord from 'discord.js'
+import discord, {
+    APIMessageContentResolvable,
+    MessageAdditions,
+    MessageOptions,
+} from 'discord.js'
 import ContextHeader from './ContextHeader'
 import Bot from './Bot'
 
@@ -51,6 +55,24 @@ class Context {
     } = {}
 
     bot: Bot
+
+    send(
+        content:
+            | APIMessageContentResolvable
+            | (MessageOptions & { split?: false })
+            | MessageAdditions,
+    ) {
+        return this?.msg?.channel?.send(content || '[Empty]')
+    }
+
+    reply(
+        content:
+            | discord.APIMessageContentResolvable
+            | (discord.MessageOptions & { split?: false | undefined })
+            | discord.MessageAdditions,
+    ) {
+        return this?.msg?.reply(content)
+    }
 
     finish(): this {
         this.header.setFinish()

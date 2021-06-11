@@ -8,7 +8,7 @@ import isBot from '../commands/isBot'
 import prefixCheck from '../commands/prefixCheck'
 import parseArgs from '../commands/parseArgs'
 import Command, { condStringOrTrue, indent } from './Command'
-import { deprecate } from 'util'
+// import { deprecate } from 'util'
 
 type Config = Readonly<{
     [key: string]: string | number
@@ -43,6 +43,7 @@ class Bot extends discord.Client {
     }
 
     login(token: discord.Snowflake): Promise<string> {
+        // @ts-ignore
         this.on('ready', async () => {
             this.owner = (await this.fetchApplication()).owner
             this.emit('readyState', this)
@@ -65,6 +66,7 @@ class Bot extends discord.Client {
 
                 this.emit('final', finalContext)
             })
+            // @ts-ignore
             .on('final', async (context: Context) => {
                 console.log('finished!')
             })
